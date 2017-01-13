@@ -1,3 +1,4 @@
+###数据格式：   
     print("id: " + mina['id'])
     print("名字: " + mina['name'])
     print("公司: " + mina['developer'])
@@ -15,3 +16,9 @@
     print("日点击: " + str(mina['dayHits']))
     print("周点击: " + str(mina['weekHits']))
     print("月点击: " + str(mina['monthHits']))
+###组件：
+    筛选导航栏　???
+    列表　avatar 
+    详情　dialog
+    详情页面　 grid list
+    各类图标
