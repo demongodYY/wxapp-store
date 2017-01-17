@@ -1,15 +1,21 @@
 import React, { Component } from 'react';
 import './App.css';
-import MyComponent from './Components/Button';
+import WxAppClassTab from './Components/WxAppClassTab';
+import WxAppList from './Components/WxAppList';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
+      <MuiThemeProvider>
+          <div className="App">
+            <h1>小程序列表</h1>
+            <WxAppClassTab/>
+            <WxAppList/>
+          </div>
+      </MuiThemeProvider>
 
-            <MyComponent/>
-      </div>
     );
   }
 }
