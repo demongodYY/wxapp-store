@@ -39,8 +39,8 @@ class WxAppList extends Component{
         ];
         return (
             <ListItem
-                primaryText={this.props.primaryText}
-                leftAvatar={<Avatar src={this.props.iconSrc}/>}
+                primaryText={this.props.wxAppItem.name}
+                leftAvatar={<Avatar src={this.props.wxAppItem.logo}/>}
                 rightIcon={<ActionGrade />}
                 onTouchTap={this.handleOpen}
             >
@@ -51,7 +51,7 @@ class WxAppList extends Component{
                     onRequestClose={this.handleClose}
                     autoScrollBodyContent={true}
                 >
-                    <WxAppDetail/>
+                    <WxAppDetail wxAppItem={this.props.wxAppItem}/>
                 </Dialog>
             </ListItem>
         );

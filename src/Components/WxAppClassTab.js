@@ -1,11 +1,12 @@
 import React from 'react'
 import {Tabs, Tab} from 'material-ui/Tabs'
+import WxAppList from './WxAppList';
 
 class WxAppClassTabs extends React.Component {
     constructor(props){
         super(props);
         this.state={
-            value : 'all',
+            value : '全部',
         };
     }
     handleChange  = (value) => {
@@ -14,21 +15,30 @@ class WxAppClassTabs extends React.Component {
         })
     };
 
+    getTypesArray = (wxAppItems) => {
+        let TypesArray = ["全部"];
+        for(let i = 0;i<wxAppItems.length;i++){
+            if(TypesArray.indexOf(wxAppItems[i].type)===-1){
+                TypesArray.push(wxAppItems[i].type)
+            }
+        }
+        return(TypesArray)
+    };
+
     render() {
-      return (
-          <Tabs value={this.state.value} onChange={this.handleChange}>
-              <Tab label="全部"　value="all">
-              </Tab>
-              <Tab label="体育"　value="sport">
-              </Tab>
-              <Tab label="社交"　value="comm">
-              </Tab>
-              <Tab label="阅读"　value="reading">
-              </Tab>
-              <Tab label="生活"　value="living">
-              </Tab>
+        const that =this;
+        const TypesArray=that.getTypesArray(that.props.wxAppItems);
+        return (
+          <Tabs value={that.state.value} onChange={that.handleChange}>
+              {
+                  TypesArray.map(function (type) {
+                      return(<Tab label={type} value={type} key={type}>
+                            <WxAppList wxAppType={type} wxAppItems={that.props.wxAppItems}/>
+                      </Tab>)
+                 })
+              }
           </Tabs>
-      );
+        );
     }
 }
 
