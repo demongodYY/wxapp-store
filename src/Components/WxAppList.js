@@ -13,7 +13,7 @@ class WxAppList extends Component{
         }
         else{
             return (wxAppItmes.filter(function (item) {
-                return item.type===wxAppType;
+                return item.desc===wxAppType;
             }));
         }
     }
@@ -24,10 +24,11 @@ class WxAppList extends Component{
                     {
                         this.wxFilterAppItmes(this.props.wxAppType,this.props.wxAppItems).map(function(item){
                             return (
-                                <WxAppItem
-                                    key={item.id}
-                                    wxAppItem={item}
-                                />)
+                                    <WxAppItem
+                                        key={item.id}
+                                        wxAppItem={item}
+                                    />
+                            )
                         })
                     }
                 </List>

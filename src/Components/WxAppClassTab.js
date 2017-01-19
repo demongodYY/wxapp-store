@@ -14,27 +14,17 @@ class WxAppClassTabs extends React.Component {
             value : value,
         })
     };
-
-    getTypesArray = (wxAppItems) => {
-        let TypesArray = ["全部"];
-        for(let i = 0;i<wxAppItems.length;i++){
-            if(TypesArray.indexOf(wxAppItems[i].type)===-1){
-                TypesArray.push(wxAppItems[i].type)
-            }
-        }
-        return(TypesArray)
-    };
-
     render() {
         const that =this;
-        const TypesArray=that.getTypesArray(that.props.wxAppItems);
         return (
-          <Tabs value={that.state.value} onChange={that.handleChange}>
+          <Tabs value={that.state.value} onChange={that.handleChange} tabItemContainerStyle={{display:"inline-block",overflowX :'auto',overflowY:'auto'}}>
               {
-                  TypesArray.map(function (type) {
-                      return(<Tab label={type} value={type} key={type}>
+                  this.props.wxAppTypes.map(function (type,index) {
+                      return(
+                          <Tab label={type} value={type} key={index} style={{width:"auto",fontSize:18,padding:"0 0.5em"}}>
                             <WxAppList wxAppType={type} wxAppItems={that.props.wxAppItems}/>
-                      </Tab>)
+                        　</Tab>
+                      )
                  })
               }
           </Tabs>

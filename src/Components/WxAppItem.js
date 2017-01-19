@@ -4,10 +4,10 @@
 import React,{ Component }from 'react';
 import Avatar from 'material-ui/Avatar';
 import ListItem from 'material-ui/List/ListItem';
-import ActionGrade from 'material-ui/svg-icons/action/grade';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 import WxAppDetail from './WxAppDetail';
+import WxAppRating from './WxAppRating'
 
 class WxAppList extends Component{
     constructor(props){
@@ -40,8 +40,12 @@ class WxAppList extends Component{
         return (
             <ListItem
                 primaryText={this.props.wxAppItem.name}
-                leftAvatar={<Avatar src={this.props.wxAppItem.logo}/>}
-                rightIcon={<ActionGrade />}
+                secondaryText={
+                        <span style={{float:"right"}}>
+                           <WxAppRating rating={this.props.wxAppItem.starNum}/>
+                       </span>
+                }
+                leftAvatar={<Avatar src={this.props.wxAppItem.logoWebUrl}/>}
                 onTouchTap={this.handleOpen}
             >
                 <Dialog

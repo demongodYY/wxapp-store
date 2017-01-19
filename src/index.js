@@ -6,6 +6,6 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 
 injectTapEventPlugin();
 ReactDOM.render(
-  <App source="file:///home/loketa/Coding/Project/WebstormProjects/wxapp-store/src/data/test.json"/>,
+  <App />,
   document.getElementById('root')
 );
