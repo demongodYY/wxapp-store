@@ -17,6 +17,7 @@ class WxAppClassTabs extends React.Component {
     render() {
         const that =this;
         return (
+
           <Tabs value={that.state.value} onChange={that.handleChange} tabItemContainerStyle={{display:"inline-block",overflowX :'auto',overflowY:'auto'}}>
               {
                   this.props.wxAppTypes.map(function (type,index) {
