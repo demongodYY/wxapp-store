@@ -2,6 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2dcc6833-9264-4e52-b26f-4071fed79c3f" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/asset-manifest.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/static/css/main.c0cdd2db.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/static/css/main.c0cdd2db.css.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/static/js/main.d985f009.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/static/js/main.d985f009.js.map" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Components/WxAppDetail.js" afterPath="$PROJECT_DIR$/src/Components/WxAppDetail.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -88,7 +95,7 @@
         <entry file="file://$PROJECT_DIR$/src/Components/WxAppDetail.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="268">
-              <caret line="51" column="89" lean-forward="false" selection-start-line="51" selection-start-column="89" selection-end-line="51" selection-end-column="89" />
+              <caret line="51" column="98" lean-forward="false" selection-start-line="51" selection-start-column="98" selection-end-line="51" selection-end-column="98" />
               <folding />
             </state>
           </provider>
@@ -401,12 +408,12 @@
       <workItem from="1484828883823" duration="1299000" />
       <workItem from="1484831235878" duration="1207000" />
       <workItem from="1484875039992" duration="2780000" />
-      <workItem from="1484898465356" duration="32468000" />
+      <workItem from="1484898465356" duration="32631000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="120266000" />
+    <option name="totallyTimeSpent" value="120429000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-1" width="1280" height="1024" extended-state="6" />
@@ -774,7 +781,7 @@
     <entry file="file://$PROJECT_DIR$/src/Components/WxAppDetail.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="268">
-          <caret line="51" column="89" lean-forward="false" selection-start-line="51" selection-start-column="89" selection-end-line="51" selection-end-column="89" />
+          <caret line="51" column="98" lean-forward="false" selection-start-line="51" selection-start-column="98" selection-end-line="51" selection-end-column="98" />
           <folding />
         </state>
       </provider>
