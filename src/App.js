@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import WxAppClassTab from './Components/WxAppClassTab';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import {Spin} from 'antd';
 import $ from 'jquery';
 import './App.css';
-
+import WxAppClassTab from './Components/WxAppClassTab';
 
 class App extends Component {
     constructor(props){
@@ -11,6 +10,7 @@ class App extends Component {
         this.state = {
             data : [],
             typesArray:[],
+            statu:false,
         };
     }
 
@@ -20,13 +20,16 @@ class App extends Component {
             let typesArray = that.getTypesArray(result);
             that.setState({
                 data : result,
-                typesArray: typesArray
+                typesArray: typesArray,
+                statu:true,
             });
         })
     }
 
     componentWillUnmount() {
-
+        this.setState({
+            statu:false,
+        })
     }
 
     getTypesArray = (wxAppItems) => {
@@ -36,19 +39,25 @@ class App extends Component {
                 TypesArray.push(wxAppItems[i].desc)
             }
         }
+        console.log(TypesArray);
         return(TypesArray);
     };
 
     render() {
-        return (
-          <MuiThemeProvider>
-              <div className="App">
-                <h1>小程序列表</h1>
-                <WxAppClassTab wxAppItems={this.state.data} wxAppTypes={this.state.typesArray}/>
-              </div>
-          </MuiThemeProvider>
-
-        );
+        if(this.state.statu===true){
+            return (
+                <div className="App">
+                    <WxAppClassTab wxAppItems={this.state.data} wxAppTypes={this.state.typesArray}/>
+                </div>
+            );
+        }
+        else{
+            return (
+                <div className="App" style={{textAlign:"center",margin:"50px 0"}}>
+                    <Spin size="large" tip="Loading..."/>
+                </div>
+            )
+        }
     }
 }
 

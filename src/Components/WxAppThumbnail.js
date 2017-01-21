@@ -3,53 +3,38 @@
  */
 
 import React from 'react'
-import GridTile from 'material-ui/GridList';
-import Dialog from 'material-ui/Dialog';
-import FlatButton from 'material-ui/FlatButton';
+import {Modal} from 'antd';
 
 const styles={
-
-    img: {
-        padding:'0 5px',
-        width: '100px',
-        height: '100px',
-    },
+    img :{
+        width: '90%',
+        clear: 'both',
+        display: 'block',
+        margin: 'auto',
+    }
 };
 
 class WxAppThumbnail extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            open : false,
+            visible : false,
         };
     }
     handleOpen = () => {
-        this.setState({open: true});
+        this.setState({visible: true});
     };
     handleClose = () => {
-        this.setState({open: false});
+        this.setState({visible: false});
     };
     render() {
-        const actions = [
-            <FlatButton
-                label="Cancel"
-                primary={true}
-                onTouchTap={this.handleClose}
-            />
-        ];
         return(
-            <GridTile onTouchTap={this.handleOpen}>
-                <img src={this.props.imgUrl} style={styles.img} alt={"应用截图"}/>
-                <Dialog
-                    actions={actions}
-                    modal={false}
-                    open={this.state.open}
-                    onRequestClose={this.handleClose}
-                    autoScrollBodyContent={true}
-                >
-                    <img src={this.props.imgUrl} style={{width:"100%"}} alt={"应用截图"}/>
-                </Dialog>
-            </GridTile>
+            <div >
+                <img src={this.props.imgUrl} style={{width:"100%"}} alt={"应用截图"} onClick={this.handleOpen}/>
+                <Modal title="应用截图" visible={this.state.visible} onOk={this.handleClose} onCancel={this.handleClose} style={{top:2}}>
+                    <img src={this.props.imgUrl} style={styles.img} alt={"应用截图"}/>
+                </Modal>
+            </div>
         )
     }
 }

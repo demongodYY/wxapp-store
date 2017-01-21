@@ -2,16 +2,10 @@
  * Created by loketa on 1/17/17.
  */
 import React,{ Component } from 'react';
-import {Card, CardHeader, CardTitle, CardText} from 'material-ui/Card'
-import GridList from 'material-ui/GridList';
+import { Row, Col } from 'antd';
 import WxAppThumbnail from './WxAppThumbnail'
 
 const styles = {
-    root: {
-        display: 'flex',
-        flexWrap: 'wrap',
-        justifyContent: 'space-around',
-    },
     gridList: {
         display: 'flex',
         flexWrap: 'nowrap',
@@ -19,44 +13,49 @@ const styles = {
         overflowY: 'hidden',
     },
     qrImg :{
-        width: '110px',
-        height: '125px',
+        width: '125px',
+        height: '140px',
         clear: 'both',
         display: 'block',
-        margin: 'autto',
-    }
+        margin: 'auto',
+    },
 };
 
 class WxAppDetail extends Component {
     render(){
         return(
-            <Card>
-                <CardHeader
-                    title={this.props.wxAppItem.name}
-                    subtitle={this.props.wxAppItem.developer}
-                    avatar={this.props.wxAppItem.logoWebUrl}
-                />
-                <CardTitle
-                    subtitle="应用介绍(点击查看详情)"
-                    actAsExpander={true}
-                    showExpandableButton={true}
-                />
-                <CardText expandable={true}>
-                    {this.props.wxAppItem.slogan}
-                </CardText>
-                <CardTitle subtitle="应用截图"/>
-                <div style={styles.root}>
-                    <GridList style={styles.gridList}  cellHeight={100}>
+            <div>
+                <coentent>
+                    <h4>应用介绍</h4>
+                    <hr/>
+                    <p>{this.props.wxAppItem.slogan}</p>
+                </coentent>
+                <br/>
+                <coentent>
+                    <h4>应用截图</h4>
+                    <hr/>
+                    <Row gutter={16} style={styles.gridList}>
                         {this.props.wxAppItem.showImgsWebUrls.map((tile,index) => (
-                            <WxAppThumbnail key={index} imgUrl={tile}/>
+                            <Col className="gutter-row" span={6} key={index}>
+                                <div className="gutter-box">
+                                    <WxAppThumbnail imgUrl={tile}/>
+                                </div>
+                            </Col>
                         ))}
-                    </GridList>
-                </div>
-                <CardTitle subtitle="应用安装"/>
-                <div>
+                    </Row>
+                </coentent>
+                <br/>
+                <coentent>
+                    <h4>应用二维码</h4>
+                    <hr/>
                     <img style={styles.qrImg} src={this.props.wxAppItem.setupQrWebUrl}　alt={"暂无二维码，请复制应用名在小程序中搜索安装"}/>
-                </div>
-            </Card>
+                </coentent>
+                <coentent>
+                    <h4>开发者</h4>
+                    <hr/>
+                    <p>{this.props.wxAppItem.developer}</p>
+                </coentent>
+            </div>
         )
     }
 

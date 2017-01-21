@@ -2,9 +2,12 @@
  * Created by loketa on 1/16/17.
  */
 import React,{ Component }from 'react';
-import List from 'material-ui/List/List';
-
+import {Collapse} from 'antd';
+import {BackTop} from 'antd';
+import WxAppDetail from './WxAppDetail';
 import WxAppItem from './WxAppItem';
+
+const Panel = Collapse.Panel;
 
 class WxAppList extends Component{
     wxFilterAppItmes(wxAppType,wxAppItmes){
@@ -20,18 +23,20 @@ class WxAppList extends Component{
     render() {
         return (
             <appListsheet>
-                <List>
+                <Collapse accordion>
                     {
-                        this.wxFilterAppItmes(this.props.wxAppType,this.props.wxAppItems).map(function(item){
+                        this.wxFilterAppItmes(this.props.wxAppType,this.props.wxAppItems).map(function(item,index){
                             return (
-                                    <WxAppItem
-                                        key={item.id}
-                                        wxAppItem={item}
-                                    />
+                                    <Panel header={<WxAppItem wxAppItem={item}/>} key={index}>
+                                        <WxAppDetail
+                                            wxAppItem={item}
+                                        />
+                                    </Panel>
                             )
                         })
                     }
-                </List>
+                </Collapse>
+                <BackTop style={{right:"5%",bottom:"5%"}}/>
             </appListsheet>
         );
     }

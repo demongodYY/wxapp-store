@@ -1,10 +1,9 @@
 #微信小程序应用列表
 ##运用框架：
 - react
-- material-ui
+- Ant Design
 - Jquery
 - npm
-- react-rater
 ## 安装运行：
 #### dev版：
     npm install
