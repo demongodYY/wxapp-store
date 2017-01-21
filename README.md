@@ -1,15 +1,19 @@
 #微信小程序应用列表
 ##运用框架：
+
 - react
 - Ant Design
 - Jquery
 - npm
+
 ## 安装运行：
+
 #### dev版：
     npm install
     npm start
     open http://localhost:3000
-#### build版
+    
+#### build版:
     npm run build
     npm install -g pushstate-server
     pushstate-server build
