@@ -46,9 +46,10 @@ class WxAppDetail extends Component {
                 </coentent>
                 <br/>
                 <coentent>
-                    <h4>应用二维码</h4>
+                    <h4>应用使用</h4>
                     <hr/>
                     <p style={{textAlign:"center",fontWeight:"bold",}}>{this.props.wxAppItem.name}</p>
+                    <p style={{textAlign:"center",fontSize:"0.8em",}}>(微信扫描二维码或复制App名在发现->小程序里搜索使用)</p>
                     <img style={styles.qrImg} src={this.props.wxAppItem.setupQrWebUrl}　alt={"暂无二维码，请复制上方应用名在微信小程序中搜索安装"}/>
                 </coentent>
                 <coentent>
