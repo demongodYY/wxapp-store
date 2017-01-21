@@ -39,7 +39,6 @@ class App extends Component {
                 TypesArray.push(wxAppItems[i].desc)
             }
         }
-        console.log(TypesArray);
         return(TypesArray);
     };
 

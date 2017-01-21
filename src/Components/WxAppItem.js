@@ -16,10 +16,13 @@ const styles ={
   },
   title:{
     float:"left",
-    fontSize:"16px",
+    fontSize:"15px",
     fontWeight:"bold",
-  }
-
+    textOverflow:"ellipsis",
+    overflow:"hidden",
+    whiteSpace:"nowrap",
+    width:"100%",
+  },
 
 };
 
@@ -27,18 +30,18 @@ class WxAppItem extends Component{
 
     render() {
         return (
-            <Row gutter={4}>
+            <Row gutter={6}>
                 <Col className="gutter-row" span={3}>
                     <div className="gutter-box">
                         <img src={this.props.wxAppItem.logoWebUrl} style={styles.avtar} alt="图标"/>
                     </div>
                 </Col>
-                <Col className="gutter-row" span={14}>
-                    <div className="gutter-box">
-                        <span style={styles.title}>{this.props.wxAppItem.name}</span>
+                <Col className="gutter-row" span={12}>
+                    <div className="gutter-box" style={styles.title}>
+                        {this.props.wxAppItem.name}
                     </div>
                 </Col>
-                <Col className="gutter-row" span={7}>
+                <Col className="gutter-row" span={9}>
                     <div className="gutter-box">
                         <WxAppRating style={{float:"right"}} rating={this.props.wxAppItem.starNum}/>
                     </div>
