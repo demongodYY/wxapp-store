@@ -10,6 +10,7 @@
     npm start
     open http://localhost:3000
 #### build版
+    npm run build
     npm install -g pushstate-server
     pushstate-server build
     open http://localhost:9000
