@@ -16,7 +16,7 @@ class App extends Component {
 
     componentDidMount() {
         let that = this;
-        $.post("http://www.bokajun.com/management/bokajun/bokaList/ALL/dayHits",function (result,status) {
+        $.get("http://www.bokajun.com/management/bokajun/bokaList/ALL/dayHits",function (result,status) {
             let typesArray = that.getTypesArray(result);
             that.setState({
                 data : result,

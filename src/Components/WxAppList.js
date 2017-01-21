@@ -4,12 +4,40 @@
 import React,{ Component }from 'react';
 import {Collapse} from 'antd';
 import {BackTop} from 'antd';
+import $ from 'jquery';
 import WxAppDetail from './WxAppDetail';
 import WxAppItem from './WxAppItem';
 
 const Panel = Collapse.Panel;
+const $doc = $(document);
+const $win = $(window);
 
 class WxAppList extends Component{
+    constructor(props){
+        super(props);
+        this.state = {
+            index:1
+        };
+    }
+    componentDidMount() {
+        let that =this;
+        $(window).scroll(function(){
+            // test if at the bottom
+            if ($doc.height()-$win.height()-$(this).scrollTop() === 0) {
+                if(that.state.index*20<that.props.wxAppItems.length){
+                    let pageIndex=that.state.index+1;
+                    that.setState({
+                        index:pageIndex
+                    })
+                }
+            }
+        });
+    }
+
+    componentWillUnmount() {
+
+    }
+
     wxFilterAppItmes(wxAppType,wxAppItmes){
         if(wxAppType==="全部"){
             return wxAppItmes;
@@ -25,7 +53,7 @@ class WxAppList extends Component{
             <appListsheet>
                 <Collapse accordion>
                     {
-                        this.wxFilterAppItmes(this.props.wxAppType,this.props.wxAppItems).map(function(item,index){
+                        this.wxFilterAppItmes(this.props.wxAppType,this.props.wxAppItems).slice(0,this.state.index*20).map(function(item,index){
                             return (
                                     <Panel header={<WxAppItem wxAppItem={item}/>} key={index}>
                                         <WxAppDetail
